@@ -1,18 +1,18 @@
 package jp.techacademy.naoki.kawamata.kotlinlog
 import android.util.Log
-open class Dog {
-    // プロパティ
-    var name: String
-    var age: Int
 
+open class Dog: Animal, Movable {
     // 引数付きコンストラクタ
-    constructor(name: String, age: Int) {
-        this.name = name
-        this.age = age
+    constructor(name:String, age:Int, hobby:String):super(name, age, hobby){
     }
 
-    // メソッド
-    open fun say() {
+    // Animalクラスのメソッドをオーバーライド
+    override fun say() {
         Log.d("kotlintest", this.name + "(" + this.age + "歳)" + "「ワンワン」")
+    }
+
+    // Movableインタフェースのメソッドをオーバーライド
+    override fun move() {
+        Log.d("kotlintest", this.name + "(" + this.age + "歳)" + "は全力で走った。")
     }
 }
